@@ -1,0 +1,47 @@
+{
+  "openapi": "3.0.0",
+  "info": {
+    "title": "REST Countries Demo",
+    "description": "API used to retrieve information about countries",
+    "version": "1.0.0",
+    "x-ibm-name": "rest-countries-openapis"
+  },
+  "servers": [
+    {
+      "url": "https://restcountries.com/v3.1"
+    }
+  ],
+  "paths": {
+    "/name/{countryName}": {
+      "get": {
+        "parameters": [
+          {
+            "name": "countryName",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "type": "object"
+                  }
+                }
+              }
+            },
+            "description": "ok"
+          }
+        },
+        "description": "Retrieve countries with a specific name",
+        "summary": "Retrieve countries with a specific name"
+      }
+    }
+  }
+}
